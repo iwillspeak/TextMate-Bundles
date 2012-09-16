@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>grammar</string>
+	</array>
+	<key>foldingStartMarker</key>
+	<string>/\*\*|\{\s*$</string>
+	<key>foldingStopMarker</key>
+	<string>\*\*/|^(\s*|%)\}</string>
+	<key>name</key>
+	<string>Parsegen Grammar File</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>begin</key>
+			<string>%{</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>comment.seperator.parsegen</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>%}</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.function.nonterm</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>operator.parsegen.assign</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>string.regexp.expansion</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>^([a-z_]+)\s*(:=)((\s*([A-Z_]+|[a-z_]+))*)</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>//.*</string>
+					<key>name</key>
+					<string>comment.single.parsegen</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>source.c</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.parsegen</string>
+	<key>uuid</key>
+	<string>505A4EE9-7CB7-4F7F-A533-5F580D59420D</string>
+</dict>
+</plist>
